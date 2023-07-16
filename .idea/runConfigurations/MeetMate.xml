@@ -1,0 +1,101 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MeetMate" type="DatabaseScript">
+    <script-text>-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3308
+-- Généré le : lun. 18 avr. 2022 à 14:32
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
+
+SET SQL_MODE = &quot;NO_AUTO_VALUE_ON_ZERO&quot;;
+START TRANSACTION;
+SET time_zone = &quot;+00:00&quot;;
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `meetmate`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `games`
+--
+
+DROP TABLE IF EXISTS `games`;
+CREATE TABLE IF NOT EXISTS `games` (
+    `idGAMES` int(11) NOT NULL,
+    `name` varchar(255) NOT NULL,
+    `description` text NOT NULL,
+    `type` varchar(255) NOT NULL,
+    PRIMARY KEY (`idGAMES`)
+    ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `relation`
+--
+
+DROP TABLE IF EXISTS `relation`;
+CREATE TABLE IF NOT EXISTS `relation` (
+    `send` int(11) NOT NULL,
+    `receive` int(11) NOT NULL,
+    `status` int(11) NOT NULL
+    ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `relation`
+--
+
+INSERT INTO `relation` (`send`, `receive`, `status`) VALUES
+                                                         (1, 2, 0),
+                                                         (3, 1, 0),
+                                                         (2, 1, 0),
+                                                         (2, 3, 0),
+                                                         (6, 3, 0),
+                                                         (6, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `pseudo` varchar(255) NOT NULL,
+    `nickname` varchar(255) NOT NULL,
+    `email` text NOT NULL,
+    `pass` text NOT NULL,
+    `roles` text NOT NULL,
+    PRIMARY KEY (`id`)
+    ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `pseudo`, `nickname`, `email`, `pass`, `roles`) VALUES
+                                                                               (1, 'mop', 'mop', 'mop@mop.mop', '$argon2i$v=19$m=65536,t=4,p=1$eDVwUVpMSmEvSWwwRUx5dA$6awX1oM3bjmldkp/KAUhyfVNRw0LrkKCdi1bn3hWvFI', '[\\\&quot;ROLE_USER\\\&quot;]'),
+                                                                               (2, 'aze', 'aze', 'aze@aze.aze', '$argon2i$v=19$m=65536,t=4,p=1$RHhPUXVBYWpLZ2Mzcjk2eA$NSsqKnuGARajdeEVNA4BNxw7Qa6Re2/5YUCkMmrgGa0', '1'),
+                                                                               (3, 'root', 'root', 'root@root.root', '$argon2i$v=19$m=65536,t=4,p=1$Zlo2WEVqaUlqWERRVFRoWQ$GSQSkoU8JfhYIWRHKkLB+OcREgQAWqCz9VVnNS6maoo', '1'),
+                                                                               (4, 'poli', 'plo', 'divergentchco@gmail.com', '$argon2i$v=19$m=65536,t=4,p=1$Mm5uenJ5Ym50a2s5dUVTTA$ei17A6MdctKA0rqHODHji6rur07JCodS2uebeoUm76c', '0'),
+                                                                               (6, 'wxc', 'wxc', 'wxc@wxc.wc', '$argon2i$v=19$m=65536,t=4,p=1$NzBGTUxHNXRGbHZuSGs3Rw$arhx7GjUMb62ihWzqAvPAETYiKkTbDjn5bUHAYUYLfI', '0'),
+                                                                               (7, 'dfg', 'dfg', 'dfg@dfg.dfg', '$argon2i$v=19$m=65536,t=4,p=1$eDhqNEI4U3ljU1RQRHhNbg$KpgFpv9FKtOykffDMvoM9yV9AwUuExGGPSSWODpNEVM', '0');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;</script-text>
+    <method v="2" />
+  </configuration>
+</component>
